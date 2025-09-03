@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VerifyNow - Seamless & Secure Email Verification</title>
+  <meta name="description" content="VerifyNow API: fast, secure email verification with OTPs. Integrate easily, ensure deliverability, and protect your emails." />
+  <!-- Fonts placeholders (step 1: load all fonts) -->
+  <style>
+    /* Font-face placeholders for two fonts: Inter (sans) and Merriweather (serif) */
+    @font-face {
+      font-family: 'Inter';
+      src: url('/path-to-inter.woff2') format('woff2');
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'Merriweather';
+      src: url('/path-to-merriweather.woff2') format('woff2');
+      font-weight: 400 700;
+      font-style: normal;
+      font-display: swap;
+    }
+  </style>
+  <!-- Tailwind CSS (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Root styles for scroll reveal effects (animated via JS) */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 600ms ease-out, transform 600ms ease-out; }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased overflow-x-hidden opacity-0" id="page">
+  <!-- Header / Navbar (consistent across pages) -->
+  <header class="bg-black/80 border-b border-gray-700 sticky top-0 z-50 backdrop-blur">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <div class="flex items-center space-x-3" style="font-family: Merriweather, serif;">
+          <span class="text-2xl font-semibold" style="font-family: 'Merriweather', serif;">VerifyNow</span>
+          <span class="text-sm text-blue-300 hidden sm:inline-flex" style="font-family: Inter, sans-serif;">Email Verification API</span>
+        </div>
+        <nav class="hidden md:flex space-x-8">
+          <a href="index.html" class="hover:text-blue-400 transition-colors">Home</a>
+          <a href="pricing.html" class="hover:text-blue-400 transition-colors">Pricing</a>
+          <a href="api.html" class="hover:text-blue-400 transition-colors">API</a>
+          <a href="contact.html" class="hover:text-blue-400 transition-colors">Contact</a>
+          <a href="login.html" class="hover:text-blue-400 transition-colors">Login</a>
+        </nav>
+        <button id="menuBtn" class="md:hidden text-blue-400 hover:text-blue-300 focus:outline-none" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="md:hidden hidden px-4 pb-4">
+      <a href="index.html" class="block py-2 text-sm hover:text-blue-400">Home</a>
+      <a href="pricing.html" class="block py-2 text-sm hover:text-blue-400">Pricing</a>
+      <a href="api.html" class="block py-2 text-sm hover:text-blue-400">API</a>
+      <a href="contact.html" class="block py-2 text-sm hover:text-blue-400">Contact</a>
+      <a href="login.html" class="block py-2 text-sm hover:text-blue-400">Login</a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <!-- Hero -->
+    <section class="grid md:grid-cols-2 items-center gap-12">
+      <div class="space-y-6">
+        <h1 class="text-4xl md:text-5xl font-extrabold" style="font-family: Inter, sans-serif;">Seamless & Secure Email Verification.</h1>
+        <p class="text-lg text-gray-200 max-w-md">VerifyNow provides a robust API to validate emails with OTP-based confirmation. Integrate in minutes, ensure high deliverability, and keep your user data secure.</p>
+        <div class="flex items-center space-x-4">
+          <a href="pricing.html" class="px-6 py-3 rounded-full bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold shadow-lg hover:from-cyan-600 hover:to-blue-600 transition">Get Started for Free</a>
+          <a href="api.html" class="px-4 py-2 rounded-full border border-gray-700 text-gray-200 hover:border-blue-400 hover:text-blue-400 transition">View API</a>
+        </div>
+      </div>
+      <div class="hidden md:block" aria-label="Hero Illustration">
+        <div class="w-full h-80 bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-xl" style="position:relative;">
+          <img src="https://pixabay.com/get/gfbe79c95ec67bf18c5a1c2d0dd8b9ae129e4c05eae8c2522bcea308bb33f340856ddf77a9da21275a591b9fd2d09a6230a96fc38e8f33db64bc0093d5a81c37d_640.jpg" alt="Abstract neon tech illustration" class="absolute inset-0 w-full h-full object-cover rounded-xl" style="opacity:.95;"/>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="mt-20 reveal" aria-label="Key features">
+      <h2 class="text-2xl font-semibold mb-6" style="font-family: Inter, sans-serif;">Key Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Feature 1 -->
+        <article class="p-6 rounded-xl bg-gray-900/70 border border-gray-800 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 reveal">
+          <div class="flex items-center space-x-3 mb-3">
+            <!-- Icon: Lightning bolt -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+            <h3 class="text-lg font-semibold">Fast Integration</h3>
+          </div>
+          <p class="text-sm text-gray-300">Drop-in API endpoints with minimal configuration and SDKs for major languages.</p>
+        </article>
+
+        <!-- Feature 2 -->
+        <article class="p-6 rounded-xl bg-gray-900/70 border border-gray-800 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 reveal">
+          <div class="flex items-center space-x-3 mb-3">
+            <!-- Icon: Shield check -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M12 3l7 4v6c0 5-3.5 9-7 9s-7-4-7-9V7l7-4z" />
+            </svg>
+            <h3 class="text-lg font-semibold">High Deliverability</h3>
+          </div>
+          <p class="text-sm text-gray-300">OTP-based verification minimizes bounces and improves inbox acceptance.</p>
+        </article>
+
+        <!-- Feature 3 -->
+        <article class="p-6 rounded-xl bg-gray-900/70 border border-gray-800 shadow-lg hover:shadow-2xl transition transform hover:-translate-y-1 reveal">
+          <div class="flex items-center space-x-3 mb-3">
+            <!-- Icon: Shield -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3l9 4-9 4-9-4 9-4zm0 8l9 4-9 4-9-4 9-4z" />
+            </svg>
+            <h3 class="text-lg font-semibold">Secure</h3>
+          </div>
+          <p class="text-sm text-gray-300">OTP verification with advanced fraud detection and encrypted token handling.</p>
+        </article>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="mt-20 reveal" aria-label="Testimonials">
+      <h2 class="text-2xl font-semibold mb-6" style="font-family: Inter, sans-serif;">What teams are saying</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <blockquote class="p-6 rounded-xl bg-gray-900/70 border border-gray-800">
+          <p class="text-sm text-gray-200">“VerifyNow cut our onboarding time in half and boosted email deliverability by 28%.”</p>
+          <footer class="mt-2 text-sm text-gray-400">— Product Lead, Acme Labs</footer>
+        </blockquote>
+        <blockquote class="p-6 rounded-xl bg-gray-900/70 border border-gray-800">
+          <p class="text-sm text-gray-200">“The OTP flow is seamless for users and the API docs are crystal clear.”</p>
+          <footer class="mt-2 text-sm text-gray-400">— Engineering Lead, NovaTech</footer>
+        </blockquote>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-stone-800 text-gray-300 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Column 1: Brand & Socials -->
+        <div>
+          <div class="text-2xl font-semibold" style="font-family: 'Merriweather', serif;">VerifyNow</div>
+          <p class="mt-2 text-sm text-gray-300">Seamless API to verify emails with OTPs. Built for developers, trusted by teams.</p>
+          <div class="flex space-x-3 mt-4">
+            <!-- Social icons inline SVGs -->
+            <a href="#" aria-label="Twitter" class="text-gray-300 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M22 5.92c-.77.35-1.6.58-2.47.69a4.28 4.28 0 0 0-7.3 3.9A12.14 12.14 0 0 1 3.15 4.67a4.28 4.28 0 0 0 1.32 5.71 4.2 4.2 0 0 1-1.93-.53v.05a4.28 4.28 0 0 0 3.43 4.2c-.4.11-.82.15-1.25.15-.31 0-.61-.03-.9-.09a4.28 4.28 0 0 0 3.99 2.97A8.59 8.59 0 0 1 2 19.54 12.1 12.1 0 0 0 8.29 21c7.55 0 11.68-6.26 11.68-11.69 0-.18-.01-.35-.02-.53A8.3 8.3 0 0 0 22 5.92z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="GitHub" class="text-gray-300 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5A12 12 0 0 0 0 12a12 12 0 0 0 8.21 11.4c.6.11.82-.26.82-.58v-2.01c-3.34.73-4.04-1.61-4.04-1.61-.55-1.4-1.35-1.78-1.35-1.78-1.1-.75.08-.73.08-.73 1.21.08 1.85 1.25 1.85 1.25 1.08 1.85 2.84 1.32 3.53 1.01.11-.8.42-1.32.75-1.63-2.67-.3-5.47-1.33-5.47-5.92 0-1.31.47-2.38 1.25-3.22-.13-.3-.54-1.52.12-3.17 0 0 1.02-.33 3.35 1.23a11.65 11.65 0 0 1 3.05-.41 11.6 11.6 0 0 1 3.05.41c2.33-1.56 3.35-1.23 3.35-1.23.66 1.65.25 2.87.13 3.17.78.84 1.25 1.91 1.25 3.22 0 4.6-2.8 5.61-5.48 5.91.43.37.81 1.1.81 2.22v3.3c0 .32.22.69.83.58A12 12 0 0 0 24 12 12 12 0 0 0 12 .5z"/>
+              </svg>
+            </a>
+            <a href="#" aria-label="LinkedIn" class="text-gray-300 hover:text-white transition">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4.98 3.5C4.98 4.88 3.86 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4v16h-4V8zM9.5 8h4.26v2.16h.06c.6-1.14 2.07-2.34 4.25-2.34 4.55 0 5.39 3 5.39 6.87V24h-4v-7.62c0-1.82-.04-4.16-2.53-4.16-2.53 0-2.92 1.98-2.92 4.01V24h-4V8z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3" style="font-family: Inter, sans-serif;">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="index.html" class="hover:text-white transition">Home</a></li>
+            <li><a href="pricing.html" class="hover:text-white transition">Pricing</a></li>
+            <li><a href="api.html" class="hover:text-white transition">API</a></li>
+            <li><a href="contact.html" class="hover:text-white transition">Contact</a></li>
+            <li><a href="login.html" class="hover:text-white transition">Login</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Newsletter -->
+        <div>
+          <h4 class="text-lg font-semibold mb-3" style="font-family: Inter, sans-serif;">Newsletter</h4>
+          <p class="text-sm text-gray-300 mb-3">Get updates on API improvements and new features.</p>
+          <form class="flex space-x-2" onsubmit="return false;">
+            <input type="email" placeholder="Your email" class="bg-gray-800 border border-gray-700 rounded px-3 py-2 text-sm w-full" aria-label="Email address" required />
+            <button class="px-4 py-2 rounded bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-semibold hover:from-cyan-600 hover:to-blue-600 transition" type="submit">Subscribe</button>
+          </form>
+        </div>
+      </div>
+
+      <hr class="my-6 border-gray-700" />
+      <p class="text-center text-sm text-gray-400">&copy; 2025 VerifyNow. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    if (menuBtn) {
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+    }
+
+    // Page fade-in on load
+    window.addEventListener('DOMContentLoaded', () => {
+      document.body.classList.add('opacity-100');
+    });
+
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateY(0)';
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity 600ms ease-out, transform 600ms ease-out';
+      observer.observe(el);
+    });
+  </script>
+</body>
+</html>
