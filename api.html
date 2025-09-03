@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VerifyNow API Docs</title>
+  <meta name="description" content="API documentation for VerifyNow: how to call the email verification endpoint and interpret responses." />
+  <style>
+    @font-face { font-family: 'Inter'; src: url('/path-to-inter.woff2') format('woff2'); font-weight: 100 900; font-style: normal; font-display: swap; }
+    @font-face { font-family: 'Merriweather'; src: url('/path-to-merriweather.woff2') format('woff2'); font-weight: 400 700; font-style: normal; font-display: swap; }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 antialiased opacity-0" id="page">
+  <header class="bg-black/80 border-b border-gray-700 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="text-2xl font-semibold" style="font-family: 'Merriweather', serif;">VerifyNow</div>
+      <nav class="hidden md:flex space-x-6">
+        <a href="index.html" class="hover:text-blue-400">Home</a>
+        <a href="pricing.html" class="hover:text-blue-400">Pricing</a>
+        <a href="api.html" class="hover:text-blue-400">API</a>
+        <a href="contact.html" class="hover:text-blue-400">Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <section class="reveal" aria-label="Intro">
+      <h1 class="text-3xl font-semibold" style="font-family: Inter, sans-serif;">API Documentation</h1>
+      <p class="text-gray-300 mt-2">Below are placeholder code samples to illustrate how to call the VerifyNow API. Replace endpoints with your production URL and keys.</p>
+    </section>
+
+    <section class="mt-8 reveal" aria-label="Code samples">
+      <h2 class="text-xl font-semibold" style="font-family: Inter, sans-serif;">Example: Verify an email via OTP (curl)</h2>
+      <pre class="bg-gray-800 text-sm rounded-lg p-4 overflow-x-auto mt-3">curl -X POST https://api.verifynow.example/v1/verify \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -d '{"email": "user@example.com", "otp": "123456"}'</pre>
+    </section>
+
+    <section class="mt-8 reveal" aria-label="Code samples fetch">
+      <h2 class="text-xl font-semibold" style="font-family: Inter, sans-serif;">Example: Verify an email using Fetch (JavaScript)</h2>
+      <pre class="bg-gray-800 text-sm rounded-lg p-4 mt-3">fetch('https://api.verifynow.example/v1/verify', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer YOUR_API_KEY'
+  },
+  body: JSON.stringify({ email: 'user@example.com', otp: '123456' })
+})
+  .then(res => res.json())
+  .then(data => console.log(data));</pre>
+    </section>
+  </main>
+
+  <footer class="bg-stone-800 text-gray-300 mt-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10"></div>
+  </footer>
+  <script>
+    // Basic page fade-in
+    window.addEventListener('DOMContentLoaded', () => {
+      document.getElementById('page').classList.add('opacity-100');
+    });
+  </script>
+</body>
+</html>
